@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AstroFlow</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/fa.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+    <link rel="manifest" href="/fav/site.webmanifest">
+    <link rel="mask-icon" href="/fav/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/caman.full.min.js"></script>
+    <script type="text/javascript" src="js/mjpeg.js"></script>
+    
+</head>
+<body>
+    <div id="topBar">
+        <div id="sideMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div id="infoMenu">
+            <i class="fas fa-info-circle"></i>
+        </div>
+    </div>
+    <div id="sideMenuDiv">
+
+    </div>
+    <div id="infoMenuDiv">
+
+    </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    /*var player = new MJPEG.Player("player", window.location.href + "/images/live.mjpg");
+    player.start();*/
+    var isPreview = false
+    var timer = 0
+  /*var caman
+  Caman("#prCanvas", "images/live.jpg", function () {
+    caman = Caman("#prCanvas")
+  });
+    
+  function applymod() {
+    caman.revert()
+    caman.brightness($("#brightSlider").val())
+    caman.exposure($("#contSlider").val())
+    caman.render()
+  }
+  var timer = 0
+  $( "#brightSlider" ).val(0)
+  $( "#contSlider" ).val(0)
+  //Image Manipulation
+
+  $( "#brightSlider" ).change(function() {
+    applymod()
+  });
+
+  $( "#contSlider" ).change(function() {
+    applymod()
+  });*/
+
+  function str_pad_left(string,pad,length) {
+      return (new Array(length+1).join(pad)+string).slice(-length);
+  }
+
+  var socket = io();
+  socket.on('preview', async function(msg){
+    d = new Date();
+    $("#prev").attr("src", "/images/capt0000.jpg?"+d.getTime());
+  });
+  socket.on('previewL', async function(msg){
+    $(".camBtn").prop("disabled",false);
+    d = new Date();
+    $("#prev").attr("src", "/images/live.jpg?"+d.getTime());
+  });
+  socket.on('solved', async function(msg){
+    $(".camBtn").prop("disabled",false);
+    $("#psImg1").attr("src", "http://nova.astrometry.net/annotated_display/" + msg.jobId + ".jpg")
+    $("#psImg2").attr("src", "http://nova.astrometry.net/sky_plot/zoom1/" + msg.calId)
+    $("#psImg3").attr("src", "http://nova.astrometry.net/sky_plot/zoom2/" + msg.calId)
+    $("#psText").text("RA: " + msg.data.ra + "\nDEC: " + msg.data.dec)
+  });
+  socket.on('cm', async function(msg){
+    $("#cnCam").prop("disabled",true);
+    $(".camBtn").prop("disabled",false);
+    $("#cnCam").text("Camera Connected")
+    
+  });
+  socket.on('pic', async function(msg){
+    $('#progressBar').width(parseInt((msg.n / msg.max) *100) + "%")
+    $('#progressBar').text(parseInt((msg.n / msg.max) *100) + "%")
+
+    var ttime = msg.expo * msg.max
+    timer += msg.expo
+    diff = ttime - timer
+    var minutes = Math.floor(parseInt((ttime - timer) / 1000) / 60);
+    var seconds = parseInt((ttime - timer) / 1000) - minutes * 60;
+    $('#progressInfo').text("Time Left: " + str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2))
+    if(diff < 10){
+        $(".camBtn").prop("disabled",false);
+        $('#progressInfo').text("")
+    }
+  });
+  socket.on('cs', async function(msg){
+    $("#cnScope").prop("disabled",true);
+    $(".scopeBtn").prop("disabled",false);
+    $("#cnScope").text("Scope Connected")
+  });
+  function cnScope() {
+    $("#cnScope").prop("disabled",true);
+    socket.emit('cnScope', {});
+  }
+  function solve() {
+    $(".camBtn").prop("disabled",true);
+    socket.emit('solve', {});
+  }
+  function cnCam() {
+    $("#cnCam").prop("disabled",true);
+    socket.emit('cnCam', {});
+  }
+  function slew(direction, stp) {
+    var rate = $( "#slewrate" ).find(":selected").val();
+    console.log(rate)
+    socket.emit('slew', {dir: direction, stp: stp, rate: rate});
+  }
+  function shut() {
+    var pass = $('#shutpass').val()
+    socket.emit('shut', {pwd: pass});
+  }
+  function restart() {
+    socket.emit('restart', {});
+  }
+  function goTo() {
+    socket.emit('goTo', {name: document.getElementById('target').value});
+  }
+  function prev() {
+    var exp = $( "#prevTime" ).find(":selected").val();
+    socket.emit('prev', {expo: exp});
+  }
+  function prevl() {
+    socket.emit('prevl', {});
+  }
+  function snap() {
+    socket.emit('snap', {num: document.getElementById('num').value, expo: document.getElementById('expo').value, iso: document.getElementById('iso').value});
+    $(".camBtn").prop("disabled",true);
+  }
+
+  
+</script>
+</html>

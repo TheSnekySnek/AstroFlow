@@ -1,0 +1,37 @@
+{
+  "name": "astroflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSnekySnek/AstroFlow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheSnekySnek/AstroFlow/issues"
+  },
+  "homepage": "https://github.com/TheSnekySnek/AstroFlow#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "imagemin": "^6.0.0",
+    "internal-ip": "^3.0.1",
+    "move-file": "^1.0.0",
+    "node-wifi": "^2.0.5",
+    "oled-font-5x7": "^1.0.3",
+    "oled-js-pi": "^1.0.5",
+    "onoff": "^3.2.2",
+    "png-to-lcd": "^1.0.3",
+    "pngparse": "^2.0.1",
+    "request": "^2.88.0",
+    "serialport": "^7.0.2",
+    "sextant.js": "^1.0.0",
+    "sharp": "^0.21.0",
+    "socket.io": "^2.1.1",
+    "sudo-js": "^1.0.2"
+  }
+}
