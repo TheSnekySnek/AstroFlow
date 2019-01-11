@@ -1,157 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AstroFlow</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main2.css">
-    <link rel="stylesheet" href="css/fa.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
-    <link rel="manifest" href="/fav/site.webmanifest">
-    <link rel="mask-icon" href="/fav/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/caman.full.min.js"></script>
-    <script type="text/javascript" src="js/mjpeg.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <!--<link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">-->
+    <link href="vendor/font-awesome-5/css/all.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="css/zephir.css" rel="stylesheet" media="all">
+
 </head>
-<body>
-    <div id="topBar">
-        <div id="sideMenu">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div id="infoMenu">
-            <i class="fas fa-info-circle"></i>
-        </div>
-    </div>
-    <div id="sideMenuDiv">
 
-    </div>
-    <div id="infoMenuDiv">
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <div class="logo">
+                            <p style="font-family: 'Comfortaa', cursive; font-size: 32px;margin: auto;">AstroFlow</p>
+                        </div>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="active">
+                            <a href="/">
+                                <i class="fas fa-list fa-lg"></i>Status</a>
+                        </li>
+                        <li>
+                           <a href="scope.html">
+                               <i class="fas fa-comment-alt fa-lg"></i>Scope</a>
+                       </li>
+                       <li>
+                           <a href="camera.html">
+                               <i class="fas fa-camera fa-lg"></i>Camera</a>
+                       </li>
+                       <li>
+                           <a href="battery.html">
+                              <i class="fas fa-battery-bolt fa-lg"></i>Battery</a>
+                       </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
 
-    </div>
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <p style="font-family: 'Comfortaa', cursive; font-size: 32px;margin: auto;">AstroFlow</p>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active">
+                            <a href="/">
+                              <i class="fas fa-list fa-lg"></i>Status</a>
+                        </li>
+                        <li>
+                            <a href="commands.html">
+                                <i class="fas fa-comment-alt fa-lg"></i>Scope</a>
+                        </li>
+                        <li>
+                            <a href="roles.html">
+                                <i class="fas fa-camera fa-lg"></i>Camera</a>
+                        </li>
+                        <li>
+                            <a href="sounds.html">
+                                <i class="fas fa-battery-bolt fa-lg"></i>Battery</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Status</h2>
+                                    <!--<button class="au-btn au-btn-icon au-btn--blue"><i class="zmdi zmdi-plus"></i>add command</button>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>System</strong> Information
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="text-input" class=" form-control-label">Nickname</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="botName" name="text-input" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="password-input" class=" form-control-label">Token</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="password" id="botToken" name="password-input" placeholder="" class="form-control">
+                                                <small class="help-block form-text">You can find it in your developer dashboard</small>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="text-input" class=" form-control-label">Guild ID</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="botGuild" name="botGuild" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <button class="au-btn au-btn--block au-btn--green m-b-20" style="width: 130px;margin: 0 auto;" id="botSaveBtn">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END MAIN CONTENT-->
+
+                    <!-- END PAGE CONTAINER-->
+                </div>
+
+            </div>
+
+            <!-- Jquery JS-->
+            <script src="vendor/jquery-3.2.1.min.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <!-- Bootstrap JS-->
+            <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+            <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+            <!-- Vendor JS       -->
+            <script src="vendor/slick/slick.min.js">
+            </script>
+            <script src="vendor/wow/wow.min.js"></script>
+            <script src="vendor/animsition/animsition.min.js"></script>
+            <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+            </script>
+            <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+            <script src="vendor/counter-up/jquery.counterup.min.js">
+            </script>
+            <script src="vendor/circle-progress/circle-progress.min.js"></script>
+            <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+            <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+            <script src="vendor/select2/select2.min.js">
+            </script>
+
+            <!-- Main JS-->
+            <script src="js/main.js"></script>
+            <script src="js/zephir.js"></script>
+
+            <script>
+                getBotData()
+
+                $('#botSaveBtn').click(function (e) {
+                    swal({
+                        title: "Are you sure?",
+                        text: "This will reload the bot",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((doit) => {
+                            if (doit) {
+                                setBotData({
+                                    nickname: $('#botName').val(),
+                                    token: $('#botToken').val(),
+                                    guild: $('#botGuild').val()
+                                })
+                                swal("Done... The bot is rebooting", {
+                                    icon: "success",
+                                });
+                            } else {
+                            }
+                        });
+                })
+            </script>
+
 </body>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-    /*var player = new MJPEG.Player("player", window.location.href + "/images/live.mjpg");
-    player.start();*/
-    var isPreview = false
-    var timer = 0
-  /*var caman
-  Caman("#prCanvas", "images/live.jpg", function () {
-    caman = Caman("#prCanvas")
-  });
-    
-  function applymod() {
-    caman.revert()
-    caman.brightness($("#brightSlider").val())
-    caman.exposure($("#contSlider").val())
-    caman.render()
-  }
-  var timer = 0
-  $( "#brightSlider" ).val(0)
-  $( "#contSlider" ).val(0)
-  //Image Manipulation
 
-  $( "#brightSlider" ).change(function() {
-    applymod()
-  });
-
-  $( "#contSlider" ).change(function() {
-    applymod()
-  });*/
-
-  function str_pad_left(string,pad,length) {
-      return (new Array(length+1).join(pad)+string).slice(-length);
-  }
-
-  var socket = io();
-  socket.on('preview', async function(msg){
-    d = new Date();
-    $("#prev").attr("src", "/images/capt0000.jpg?"+d.getTime());
-  });
-  socket.on('previewL', async function(msg){
-    $(".camBtn").prop("disabled",false);
-    d = new Date();
-    $("#prev").attr("src", "/images/live.jpg?"+d.getTime());
-  });
-  socket.on('solved', async function(msg){
-    $(".camBtn").prop("disabled",false);
-    $("#psImg1").attr("src", "http://nova.astrometry.net/annotated_display/" + msg.jobId + ".jpg")
-    $("#psImg2").attr("src", "http://nova.astrometry.net/sky_plot/zoom1/" + msg.calId)
-    $("#psImg3").attr("src", "http://nova.astrometry.net/sky_plot/zoom2/" + msg.calId)
-    $("#psText").text("RA: " + msg.data.ra + "\nDEC: " + msg.data.dec)
-  });
-  socket.on('cm', async function(msg){
-    $("#cnCam").prop("disabled",true);
-    $(".camBtn").prop("disabled",false);
-    $("#cnCam").text("Camera Connected")
-    
-  });
-  socket.on('pic', async function(msg){
-    $('#progressBar').width(parseInt((msg.n / msg.max) *100) + "%")
-    $('#progressBar').text(parseInt((msg.n / msg.max) *100) + "%")
-
-    var ttime = msg.expo * msg.max
-    timer += msg.expo
-    diff = ttime - timer
-    var minutes = Math.floor(parseInt((ttime - timer) / 1000) / 60);
-    var seconds = parseInt((ttime - timer) / 1000) - minutes * 60;
-    $('#progressInfo').text("Time Left: " + str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2))
-    if(diff < 10){
-        $(".camBtn").prop("disabled",false);
-        $('#progressInfo').text("")
-    }
-  });
-  socket.on('cs', async function(msg){
-    $("#cnScope").prop("disabled",true);
-    $(".scopeBtn").prop("disabled",false);
-    $("#cnScope").text("Scope Connected")
-  });
-  function cnScope() {
-    $("#cnScope").prop("disabled",true);
-    socket.emit('cnScope', {});
-  }
-  function solve() {
-    $(".camBtn").prop("disabled",true);
-    socket.emit('solve', {});
-  }
-  function cnCam() {
-    $("#cnCam").prop("disabled",true);
-    socket.emit('cnCam', {});
-  }
-  function slew(direction, stp) {
-    var rate = $( "#slewrate" ).find(":selected").val();
-    console.log(rate)
-    socket.emit('slew', {dir: direction, stp: stp, rate: rate});
-  }
-  function shut() {
-    var pass = $('#shutpass').val()
-    socket.emit('shut', {pwd: pass});
-  }
-  function restart() {
-    socket.emit('restart', {});
-  }
-  function goTo() {
-    socket.emit('goTo', {name: document.getElementById('target').value});
-  }
-  function prev() {
-    var exp = $( "#prevTime" ).find(":selected").val();
-    socket.emit('prev', {expo: exp});
-  }
-  function prevl() {
-    socket.emit('prevl', {});
-  }
-  function snap() {
-    socket.emit('snap', {num: document.getElementById('num').value, expo: document.getElementById('expo').value, iso: document.getElementById('iso').value});
-    $(".camBtn").prop("disabled",true);
-  }
-
-  
-</script>
 </html>
+<!-- end document-->
