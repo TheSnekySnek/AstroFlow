@@ -1,19 +1,24 @@
 const SerialPort = require('serialport')
 const port = new SerialPort('/dev/ttyUSB0', { stopbits: 1, baudRate: 9600, autoOpen: false })
-
+var hasOpen = false;
 
 
 module.exports = {
     connect: function() {
       return new Promise(function(resolve, reject) {
-        console.log("Connecting to scope...")
-        port.open(function (err) {
-          if (err) {
-            resolve(false)
-          }
-          console.log("Scope is connected")
-          resolve(true)
-        })
+        if(!hasOpen){
+          console.log("Connecting to scope...")
+          port.open(function (err) {
+            if (err) {
+              console.log("Scope is disconnected")
+              resolve(false)
+            }else{
+              hasOpen = true;
+              console.log("Scope is connected")
+              resolve(true)
+            }
+          })
+        }
       })
     },
 

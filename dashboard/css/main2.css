@@ -1,0 +1,197 @@
+@font-face {
+    font-family: "Lato";
+    src: url(../webfonts/Lato-Regular.ttf);
+}
+
+body{
+    background: #363542;
+    color: white;
+    font-family: "Lato";
+}
+h2{
+    margin-bottom: 50px;
+}
+.isOk{
+    color: #01c001;
+}
+.isBad{
+    color: red;
+}
+.isWarn{
+    color: orange;
+}
+#topBar{
+    background: #3f3d4a;
+    width: 100%;
+    height: 60px;
+    z-index: 999;
+}
+#sideMenu{
+    width: 50px;
+    border: 2px solid #bababa;
+    border-radius: 5px;
+    float: left;
+    height: 40px;
+    font-size: 22px;
+    color: #bababa;
+    padding: 1px 13px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#infoMenu{
+    width: 50px;
+    border: 2px solid #bababa;
+    border-radius: 5px;
+    float: right;
+    height: 40px;
+    font-size: 22px;
+    color: #bababa;
+    padding: 1px 12px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#infoMenu:hover, #sideMenu:hover{
+    cursor: pointer;
+    border-color: #e7e7e7;
+    color: #e7e7e7;
+}
+
+#sideMenuDiv{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background-color: #201e27;
+    box-shadow: 0px 0px 5px black;
+    z-index: 99;
+}
+.content{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    padding: 25px;
+    width: calc(100vw - 117px);
+}
+ul {
+    list-style-type: none;
+}
+.menuItem{
+    text-align: center;
+    padding-top: 22px;
+    height: 100px;
+    border-bottom: 1px solid #58536980;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+.menuItem:hover{
+    background-color: #363542;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+.menuItem.active{
+    background-color: #363542;
+}
+.menuItem > i{
+    font-size: 32px;
+}
+.barTitle{
+    height: 90px;
+    background-color: #2a2733;
+    border-bottom: 1px solid #fff3;
+    padding: 10px;
+}
+.barTitle > img{
+    width: 65px;
+    margin-left: 8px;
+}
+.statusIcon > img{
+    width: 100%;
+    max-width: 132px;
+    margin: auto;
+    display: block;
+}
+.statusData{
+    padding-top: 10px;
+}
+.statusDiv{
+    margin-bottom: 50px;
+}
+.page{
+    display: none;
+}
+.card{
+    border: 1px solid #49475c;
+    background-color: #49475c;
+    margin-bottom: 50px;
+}
+.card-header{
+    background-color: #444259;
+}
+#calibFrames{
+    width: 100px;
+}
+#autoCBtn{
+    margin-top: 30px;
+}
+.progress{
+    width: 100%;
+    background-color: #625f7e;
+}
+.progress-bar{
+    background-color: #363542;
+}
+.swal2-container .swal2-popup{
+    background: #47475f;
+    
+}
+.swal2-container .swal2-popup .swal2-title, .swal2-container .swal2-popup .swal2-content {
+    color: white !important;
+}
+
+.swal2-container .swal2-popup .swal2-footer{
+    border-top: 1px solid #707092;
+}
+.swal2-footer > a {
+    color: white;
+}
+.swal2-container .swal2-popup .swal2-styled:focus {
+    outline: none;
+    box-shadow: none;
+}
+#refreshConnect{
+    position: absolute;
+    top: 25px;
+    right: 0px;
+}
+.controlBtns{
+    max-width: 300px;
+    float: right;
+}
+.ratecontrol{
+    width: 100px;
+    float: left;
+}
+.targetSelect{
+    margin-top: 30px;
+}
+.scopeBtn{
+    background-color: #8f8db6;
+    color: white;
+    border-color: #8784b1;
+}
+.scopeBtn:hover{
+    background-color: #6e6c96;
+}
+.btn-primary{
+    background-color: #8f8db6;
+    color: white;
+    border-color: #8784b1;
+}
+.btn-primary:hover{
+    background-color: #6e6c96;
+    border-color: #8784b1;
+}

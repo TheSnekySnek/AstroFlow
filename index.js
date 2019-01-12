@@ -12,23 +12,30 @@ var sextant = require('sextant.js')
 const { exec } = require('child_process');
 var screen = require('./screen')
 var network = require('./network')
+var usb = require('usb');
 const Gpio = require('onoff').Gpio;
+
+var wifiData = {connected: false}
+var scopeData = {connected: false}
+var cameraData = {connected: false}
 
 async function connectScope() {
   var scopeState = await scope.connect()
-
+  console.log(scopeState)
   if(scopeState){
     screen.setScope("OK")
     var coor = await scope.getPos()
     console.log(coor)
     scopeConnected = true
-    io.emit("scopeStatus", {
-      connected: true
-    })
+    scopeData = coor
+    scopeData.connected = true;
   }
   else{
     screen.setScope("ERROR")
+    scopeConnected = false;
+    scopeData.connected = false
   }
+  io.emit("scopeStatus", scopeData)
 }
 
 async function displayWifi() {
@@ -42,7 +49,9 @@ async function displayWifi() {
     if(wifi){
       screen.setWifiSignal(wifi.quality)
       screen.setWifiName(wifi.ssid)
-      io.emit("wifiStatus", wifi)
+      wifiData = wifi
+      wifiData.connected = true;
+      io.emit("wifiStatus", wifiData)
     }
   }, 3000);
 }
@@ -52,12 +61,14 @@ async function connectCamera() {
   if(cameraState.connected){
     screen.setCamera("OK")
     cameraConnected = true;
-    console.log(cameraState)
-    io.emit("cameraStatus", cameraState)
+    cameraData = cameraState
+    cameraData.connected = true;
   }
   else{
     screen.setCamera("ERROR")
+    cameraData.connected = false;
   }
+  io.emit("cameraStatus", cameraData)
 }
 
 async function displayIp() {
@@ -80,6 +91,17 @@ async function bootSeq() {
 
 bootSeq()
 
+usb.on('attach', function(device) {
+  if(!scopeData.connected)
+    connectScope()
+  if(!cameraData.connected)
+    connectCamera()
+});
+usb.on('detach', function(device) {
+  connectScope()
+  connectCamera()
+});
+
 var stop = false;
 
 var scopeConnected = false
@@ -96,22 +118,14 @@ sextant.login("brdwqjigvufzexkj")
 
 io.on('connection', async function(socket){
   
-  if(scopeConnected){
-    socket.emit("cs", {})
-    var co = await scope.getPos()
-    console.log(co)
-  }
-    
-  if(cameraConnected)
-    socket.emit("cm", {})
+  socket.emit("scopeStatus", scopeData)
+  socket.emit("wifiStatus", wifiData)
+  socket.emit("cameraStatus", cameraData)
 
 
-  socket.on('cnScope', async function(msg){
-    /*await nnect()
-    var coor = await scope.getPos()
-    console.log(coor)
-    scopeConnected = true
-    socket.emit("cs", {})*/
+  socket.on('refreshUsb', async function(msg){
+    connectScope()
+    connectCamera()
   });
 
   socket.on('cnCam', async function(msg){
